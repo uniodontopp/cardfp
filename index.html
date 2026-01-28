@@ -8,25 +8,35 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Georama:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Georama:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
         /* 1. VARIÁVEIS DE DESIGN - Painel de Controle */
         :root {
-            --bg: #810e56;             /* Fundo Vinho oficial */
-            --brand-peach: #ff637e;    /* Pêssego oficial do manual */
-            --card: #ff637e;           /* Cor do card (igual ao desktop) */
-            --text: #810e56;           /* Texto Vinho para contraste no card claro */
-            --accent: #810e56;         /* Cor das labels/nomes */
-            --hover-light: #ffffff;    /* Luz branca no hover */
-            --glass-border: rgba(255, 255, 255, 0.3);
+            --bg: #810e56;             /* Vinho principal */
+            --shape-cyan: #70cddf;     /* Ciano da forma superior */
+            --shape-dark: #560b49;     /* Roxo escuro da base */
+            
+            /* VOLTANDO PARA O VIDRO: Branco ultra transparente */
+            --card: rgba(255, 255, 255, 0.08); 
+            --text: #ffffff;           /* Texto branco para contraste no vidro */
+            --accent: #ffffff;         
+            --hover-light: #00000;    /* Luz pêssego da marca no hover */
+            --glass-border: rgba(255, 255, 255, 0.15); /* Borda sutil do vidro */
         }
 
-        /* 2. CONFIGURAÇÕES GERAIS */
+        /* 2. CONFIGURAÇÕES DO CORPO - Fundo Orgânico Uniodonto */
         body { 
-            background: var(--bg); 
+            background-color: var(--bg);
+            /* Formas nítidas inspiradas no cartão institucional */
+            background-image: 
+                radial-gradient(circle at 0% 0%, var(--shape-cyan) 0%, var(--shape-cyan) 35%, transparent 35.1%),
+                radial-gradient(circle at 80% 110%, var(--shape-dark) 0%, var(--shape-dark) 50%, transparent 50.1%);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            
             color: var(--text); 
-            font-family: 'Georama', sans-serif; /* Aplicando Georama */
+            font-family: 'Georama', sans-serif;
             display: flex; 
             justify-content: center; 
             align-items: center; 
@@ -45,13 +55,13 @@
             padding: 20px;
         }
 
-        /* 4. O CARD - Estética Tech-Humanism */
+        /* 4. O CARD VIDRO - Estética Premium */
         .card { 
-            background: var(--card);   /* Agora usando a cor pêssego sólida */
+            background: var(--card);   
             border-radius: 28px; 
             padding: 25px;
             text-decoration: none; 
-            color: var(--text) !important; /* Força a cor vinho no texto */
+            color: var(--text) !important; 
             display: flex;
             flex-direction: column; 
             justify-content: center; 
@@ -59,9 +69,9 @@
             transition: 0.3s ease; 
             border: 1px solid var(--glass-border);
             
-            /* Suporte para desfoque no iPhone */
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            /* O SEGREDO DO VIDRO: Desfoque do fundo */
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
 
             /* Animação de entrada suave */
             animation: reveal 1.2s ease-out forwards;
@@ -71,7 +81,8 @@
         /* 5. INTERAÇÃO */
         .card:hover { 
             transform: translateY(-5px); 
-            border-color: var(--hover-light); 
+            border-color: var(--hover-light); /* Acende a cor da marca no hover */
+            background: rgba(255, 255, 255, 0.12); /* Aumenta um pouco a opacidade */
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
@@ -82,16 +93,16 @@
             width: 80px; 
             height: 80px; 
             border-radius: 50%; 
-            background: #333; /* Fundo escuro atrás da foto */
+            background: linear-gradient(45deg, #333, #555); 
             margin-bottom: 15px; 
             object-fit: cover; 
-            border: 2px solid var(--text); /* Borda vinho na foto */
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* 7. TEXTOS - Ajustes da Georama */
-        h1 { font-size: 1.5rem; margin: 5px 0; font-weight: 700; color: var(--text); }
-        p { font-size: 0.9rem; opacity: 0.8; text-align: center; margin-bottom: 10px; font-weight: 600; color: var(--text); }
-        .label { font-weight: 700; font-size: 0.85rem; color: var(--accent); }
+        /* 7. TEXTOS - Hierarquia com Georama */
+        h1 { font-size: 1.5rem; margin: 5px 0; font-weight: 700; }
+        p { font-size: 0.9rem; opacity: 0.7; text-align: center; margin-bottom: 10px; font-weight: 400; }
+        .label { font-weight: 600; font-size: 0.85rem; color: var(--accent); }
 
         /* 8. ANIMAÇÃO DE REVEAL */
         @keyframes reveal {
