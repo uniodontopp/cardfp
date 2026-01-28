@@ -3,52 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noindex, nofollow"> 
     <title>Felipe Andrigo | Design & Marketing</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georama:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* 1. VARIÁVEIS DE DESIGN - Painel de Controle */
         :root {
-            --bg: #810e56;
-            --card: #1a1a1a;
-            --text: #ffffff;
-            --accent: #007aff;
+            --bg: #810e56;             /* Cor oficial da marca */
+            --card: rgba(255, 99, 126, 100); /* Efeito de vidro */
+            --text: #810e56;           /* Cor das fontes */
+            --accent: #810e56;         /* Cor das labels/nomes dos botões */
+            --hover-light: #ffffff;    /* Cor da luz que acende ao passar o mouse */
+            --glass-border: rgba(255, 255, 255, 0.15); /* Borda padrão do vidro */
         }
 
+        /* 2. CONFIGURAÇÕES GERAIS - Aplicando a Georama */
         body { 
             background: var(--bg); 
             color: var(--text); 
-            font-family: -apple-system, system-ui, sans-serif;
-            display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;
+            font-family: 'Georama', sans-serif; /* Fonte padrão Uniodonto */
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            margin: 0;
         }
 
+        /* 3. GRID BENTO - Layout responsivo */
         .bento-grid { 
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 12px;
-            max-width: 400px;
-            width: 90%;
+            grid-template-columns: repeat(2, 1fr); 
+            grid-gap: 12px; 
+            max-width: 400px; 
+            width: 95%; 
             padding: 20px;
         }
 
+        /* 4. O CARD VIDRO - Estética Tech-Humanism */
         .card { 
-            background: var(--card); border-radius: 28px; padding: 25px;
-            text-decoration: none; color: inherit; display: flex;
-            flex-direction: column; justify-content: center; align-items: center;
-            transition: 0.3s; border: 1px solid #222;
+            background: var(--card); 
+            border-radius: 28px; 
+            padding: 25px;
+            text-decoration: none; 
+            color: inherit; 
+            display: flex;
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center;
+            transition: 0.3s; 
+            border: 1px solid var(--glass-border);
+            
+            /* Efeito de desfoque (Blur) */
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+
+            /* Animação de entrada suave */
+            animation: reveal 1.2s ease-out forwards;
+            opacity: 0; 
         }
 
-        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        /* 5. INTERAÇÃO - Brilho e movimento ao passar o mouse */
+        .card:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--hover-light); 
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* Brilho suave no hover */
+        }
+
         .full { grid-column: span 2; }
-        
-        /* Espaço para sua foto ou render do Blender */
+
+        /* 6. FOTO DE PERFIL - Espaço para sua imagem ou render */
         .profile-pic { 
-            width: 80px; height: 80px; border-radius: 50%; 
+            width: 80px; 
+            height: 80px; 
+            border-radius: 50%; 
             background: linear-gradient(45deg, #333, #555); 
             margin-bottom: 15px; 
+            object-fit: cover; 
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
-        h1 { font-size: 1.4rem; margin: 5px 0; font-weight: 600; }
-        p { font-size: 0.9rem; opacity: 0.5; text-align: center; margin-bottom: 10px; }
-        .label { font-weight: bold; font-size: 0.85rem; color: var(--accent); }
+        /* 7. TEXTOS - Ajustes finos da Georama */
+        h1 { 
+            font-family: 'Georama', sans-serif;
+            font-size: 1.5rem; 
+            margin: 5px 0; 
+            font-weight: 700; /* Bold para o nome principal */
+            letter-spacing: -0.01em;
+        }
+        
+        p { 
+            font-family: 'Georama', sans-serif;
+            font-size: 0.9rem; 
+            opacity: 0.7; 
+            text-align: center; 
+            margin-bottom: 10px; 
+            font-weight: 600; /* Light para o cargo */
+        }
+
+        .label { 
+            font-family: 'Georama', sans-serif;
+            font-weight: 600; /* Semi-bold para os links */
+            font-size: 0.85rem; 
+            color: var(--accent); 
+        }
+
+        /* 8. ANIMAÇÃO DE REVEAL - O surgimento orgânico */
+        @keyframes reveal {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -60,18 +133,18 @@
             <p>Estagiário em Gestão de Marketing</p>
         </div>
 
-        <a href="https://wa.me/5518999999999" class="card" target="_blank">
-            <span style="font-size: 1.5rem;">📱</span>
+        <a href="https://wa.me/5518996475746" class="card" target="_blank">
+            <span style="font-size: 1.5rem;">"Icone"</span>
             <span class="label">WhatsApp</span>
         </a>
 
-        <a href="https://instagram.com/seuuser" class="card" target="_blank">
-            <span style="font-size: 1.5rem;">📸</span>
+        <a href="https://www.instagram.com/uniodontoprudente/" class="card" target="_blank">
+            <span style="font-size: 1.5rem;">"Icone"</span>
             <span class="label">Instagram</span>
         </a>
 
         <a href="https://linkedin.com/in/seuuser" class="card full" target="_blank">
-            <span style="font-size: 1.5rem;">💼</span>
+            <span style="font-size: 1.5rem;">"Icone"</span>
             <span class="label">LinkedIn</span>
         </a>
     </div>
